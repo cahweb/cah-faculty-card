@@ -1,4 +1,4 @@
-# CAH Faculty Card
+# CAH Faculty Information Card
 A quick plugin that provides a single faculty member's directory entry (with headshot), pulled from Manager.
 
 ## How to Use
