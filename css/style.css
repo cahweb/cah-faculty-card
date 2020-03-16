@@ -1,0 +1,48 @@
+.cah-staff-list {
+    padding: .5em .2em;
+    margin: .5em;
+}
+
+.cah-staff-list a {
+    color: inherit;
+    text-decoration: none;
+    background-color: inherit;
+}
+
+.faculty-img {
+    height: 100%;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.img-circle.rounded {
+    border-radius: 5px;
+}
+
+.staff-list div .staff-name {
+    margin-bottom: .3em;
+}
+
+.staff-list div p {
+    margin: 0;
+    line-height: 1.3em;
+}
+
+.staff-list div .staff-title {
+    margin-bottom: .2em;
+}
+
+.staff-list div .staff-email a {
+    text-decoration: initial;
+    z-index: 1;
+}
+
+.staff-title {
+    font-size: 110%;
+}
+
+.fs-list {
+    font-size: 110%;
+}
