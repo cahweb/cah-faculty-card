@@ -62,11 +62,15 @@ if( !class_exists( 'CAH_FacultyCard' ) ) {
                 $title = "{$info['title']} {$info['titleDeptShort']}";
             }
             else {
-                $title = $info['titleDept']
-                    ? $info['titleDept']
-                    : $info['titleDeptShort']
-                        ? $info['titleDeptShort']
-                        : $info['title'];
+                if( isset( $info['titleDept'] ) && !empty( $info['titleDept'] ) ) {
+                    $title = $info['titleDept'];
+                }
+                else if( isset( $info['titleDeptShort'] ) && !empty( $info['titleDeptShort'] ) ) {
+                    $title = $info['titleDeptShort'];
+                }
+                else {
+                    $title = $info['title'];
+                }
             }
 
             ob_start();
@@ -84,16 +88,10 @@ if( !class_exists( 'CAH_FacultyCard' ) ) {
                             </p>
                             <div class="fs-list">
                                 <small>
-                                    <p class="staff-title">
-                                        <em><?= $title ?> 
-                                        </em>
-                                    </p>
+                                    <p class="staff-title"><em><?= $title ?></em></p>
                                     <p class="staff-email">
-                                        <a href="mailto:<?= $info['email'] ?>">
-                                            <?= $info['email'] ?>
-                                        </a>
+                                        <a href="mailto:<?= $info['email'] ?>"><?= $info['email'] ?></a>
                                     </p>
-                                    <?php // TODO: Support parsing and displaying interests ?>
                                 </small>
                             </div>
                         </div>
