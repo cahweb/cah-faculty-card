@@ -54,6 +54,21 @@ if( !class_exists( 'CAH_FacultyCard' ) ) {
 
             if( is_null( $info ) ) return '<p>[Problem retrieving faculty information.]</p>';
 
+            $title = '';
+            if( preg_match( "/^of\s/", $info['titleDept'] ) ) {
+                $title = "{$info['title']} {$info['titleDept']}";
+            }
+            else if( preg_match( "/^of\s/", $info['titleDeptShort'] ) ) {
+                $title = "{$info['title']} {$info['titleDeptShort']}";
+            }
+            else {
+                $title = $info['titleDept']
+                    ? $info['titleDept']
+                    : $info['titleDeptShort']
+                        ? $info['titleDeptShort']
+                        : $info['title'];
+            }
+
             ob_start();
             ?>
 
@@ -70,12 +85,7 @@ if( !class_exists( 'CAH_FacultyCard' ) ) {
                             <div class="fs-list">
                                 <small>
                                     <p class="staff-title">
-                                        <em><?= $info['titleDept'] 
-                                            ? $info['titleDept'] 
-                                            : $info['titleDeptShort'] 
-                                                ? $info['titleDeptShort'] 
-                                                : $info['title'] 
-                                            ?> 
+                                        <em><?= $title ?> 
                                         </em>
                                     </p>
                                     <p class="staff-email">
