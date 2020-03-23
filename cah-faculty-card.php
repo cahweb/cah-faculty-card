@@ -29,7 +29,7 @@ if( !class_exists( 'CAH_FacultyCard' ) ) {
         public function setup() {
             add_shortcode( 'cah-faculty-card', [ $this, 'shortcode' ] );
             add_action( 'init', [ $this, 'register_style' ], 10, 0 );
-            add_action( 'the_posts', [ $this, 'maybe_load_style' ]);
+            add_action( 'wp_enqueue_scripts', [ $this, 'load_style' ]);
         }
 
         public function shortcode( $atts = array() ) : string {
@@ -107,14 +107,9 @@ if( !class_exists( 'CAH_FacultyCard' ) ) {
             wp_register_style( 'cah-faculty-card-style', CAH_FACULTY_CARD__PLUGIN_DIR_URL . 'css/style.css', array(), $this->version, 'all' );
         }
 
-        public function maybe_load_style( $posts ) {
-            foreach( $posts as $post ) {
-                if( strpos( $post->post_content, '[cah-faculty-card' ) !== false ) {
-                    wp_enqueue_style( 'cah-faculty-card-style' );
-                }
-                break;
-            }
-            return $posts;
+
+        public function load_style() {
+            wp_enqueue_style( 'cah-faculty-card-style' );
         }
 
 
