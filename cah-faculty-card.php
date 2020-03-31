@@ -55,10 +55,10 @@ if( !class_exists( 'CAH_FacultyCard' ) ) {
             if( is_null( $info ) ) return '<p>[Problem retrieving faculty information.]</p>';
 
             $title = '';
-            if( preg_match( "/^of\s/", $info['titleDept'] ) ) {
+            if( preg_match( "/^\s*of\s/", $info['titleDept'] ) ) {
                 $title = "{$info['title']} {$info['titleDept']}";
             }
-            else if( preg_match( "/^of\s/", $info['titleDeptShort'] ) ) {
+            else if( preg_match( "/^\s*of\s/", $info['titleDeptShort'] ) ) {
                 $title = "{$info['title']} {$info['titleDeptShort']}";
             }
             else {
@@ -72,6 +72,8 @@ if( !class_exists( 'CAH_FacultyCard' ) ) {
                     $title = $info['title'];
                 }
             }
+
+            $title = preg_replace( "/<br\s?\/?>/", ', ', $title );
 
             ob_start();
             ?>
