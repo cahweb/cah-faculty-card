@@ -132,14 +132,7 @@ if (!class_exists('CAH_FacultyCard')) {
 
         public function loadStyle()
         {
-            global $post;
-            if (!isset($post) || !is_object($post)) {
-                return;
-            }
-
-            if (stripos($post->post_content, '[cah-faculty-card') !== false) {
-                wp_enqueue_style('cah-faculty-card-style');
-            }
+            wp_enqueue_style('cah-faculty-card-style');
         }
 
 
