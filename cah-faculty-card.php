@@ -95,7 +95,7 @@ if (!class_exists('CAH_FacultyCard')) {
                 <a href="<?= home_url("faculty-staff?id=$id") ?>" class="d-flex flex-row mx-0">
                     <div class="staff-list d-flex align-items-center">
                         <div class="faculty-img">
-                            <img src="https://cah.ucf.edu/common/resize.php?filename=<?= $info['photoUrl'] ?>&sz=2" alt="<?= $info['fullName'] ?>" class="mr-2 img-circle <?= 'rounded' == $img_shape ? $img_shape :'' ?>">
+                            <img src="https://apps.cah.ucf.edu/resize.php?filename=<?= $info['photoUrl'] ?>&sz=2" alt="<?= $info['fullName'] ?>" class="mr-2 img-circle <?= 'rounded' == $img_shape ? $img_shape :'' ?>">
                         </div>
                         <div class="d-flex flex-column">
                             <p class="staff-name">
